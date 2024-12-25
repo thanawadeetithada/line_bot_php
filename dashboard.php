@@ -92,8 +92,8 @@
     }
 
     .add-keyword button {
-        background-color: #ff8ac8;
-        color: white;
+        background-color: transparent;
+        color: #ff8ac8;
         padding: 5px 10px;
         border: 1px solid #ff8ac8;
         border-radius: 20px;
@@ -112,8 +112,8 @@
     }
 
     .add-same button {
-        background-color: #ff8ac8;
-        color: white;
+        background-color: transparent;
+        color: #ff8ac8;
         padding: 5px 10px;
         border: 1px solid #ff8ac8;
         border-radius: 20px;
@@ -131,7 +131,7 @@
         margin: 0 0 20px 0;
     }
 
-    .word-select button {
+    .add-word-select button {
         background-color: transparent;
         color: #ff8ac8;
         padding: 5px 10px;
@@ -258,10 +258,12 @@
         </div>
 
         <br>
+        <h6 style="margin-bottom: 0px;">คำตัวเลือก</h6>
         <div class="word-select">
-            <h6>คำตัวเลือก</h6>
+            <div class="word-select-container">
+            </div>
             <div class="add-word-select">
-                <button>+ เพิ่มคำตัวเลือก</button>
+                <button id="word-select-btn" class="btn btn-outline-primary">+ เพิ่มคำตัวเลือก</button>
             </div>
         </div>
     </div>
@@ -270,7 +272,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
+   document.addEventListener('DOMContentLoaded', function () {
     const addBtn = document.getElementById('add-btn');
     const btnContainer = document.querySelector('.btn-container');
 
@@ -279,6 +281,9 @@
 
     const sameBtn = document.getElementById('same-btn');
     const sameContainer = document.querySelector('.same-container');
+
+    const wordSelectBtn = document.getElementById('word-select-btn');
+    const wordSelectContainer = document.querySelector('.word-select-container');
 
     // ฟังก์ชันสำหรับสร้างปุ่มใน btnContainer
     function createButtonForBtnContainer() {
@@ -293,6 +298,11 @@
     // ฟังก์ชันสำหรับสร้างปุ่มใน sameContainer
     function createButtonForSameContainer() {
         createDynamicButton(sameContainer);
+    }
+
+    // ฟังก์ชันสำหรับสร้างปุ่มใน wordSelectContainer
+    function createButtonForWordSelectContainer() {
+        createDynamicButton(wordSelectContainer);
     }
 
     function createDynamicButton(container) {
@@ -378,6 +388,7 @@
     addBtn.addEventListener('click', createButtonForBtnContainer);
     keywordBtn.addEventListener('click', createButtonForKeywordContainer);
     sameBtn.addEventListener('click', createButtonForSameContainer);
+    wordSelectBtn.addEventListener('click', createButtonForWordSelectContainer);
 });
 
     </script>
