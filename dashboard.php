@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Bot UI</title>
+    <title>Chat Bot</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -20,7 +20,7 @@
         max-width: 900px;
         margin: 0 auto;
         background-color: #fff;
-        border: 1px solid #f4c8c8;
+        border: 1px solid black;
         border-radius: 10px;
         padding: 20px;
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
@@ -49,9 +49,9 @@
     .options button {
         text-align: center;
         padding: 10px;
-        border: 1px solid #ff8ac8;
+        border: 1px solid black;
         background-color: transparent;
-        color: #ff8ac8;
+        color: black;
         border-radius: 5px;
         flex: 1;
         cursor: pointer;
@@ -63,7 +63,7 @@
     }
 
     .add-options button {
-        background-color: #ff8ac8;
+        background-color: black;
         color: white;
         padding: 10px 20px;
         border: none;
@@ -78,9 +78,9 @@
 
     .add-sentence button {
         background-color: transparent;
-        color: #ff8ac8;
+        color: black;
         padding: 5px 10px;
-        border: 1px solid #ff8ac8;
+        border: 1px solid black;
         border-radius: 20px;
         cursor: pointer;
         font-size: 14px;
@@ -93,9 +93,9 @@
 
     .add-keyword button {
         background-color: transparent;
-        color: #ff8ac8;
+        color: black;
         padding: 5px 10px;
-        border: 1px solid #ff8ac8;
+        border: 1px solid black;
         border-radius: 20px;
         cursor: pointer;
         font-size: 14px;
@@ -113,7 +113,7 @@
 
     .add-same button {
         background-color: transparent;
-        color: #ff8ac8;
+        color: black;
         padding: 5px 10px;
         border: 1px solid #ff8ac8;
         border-radius: 20px;
@@ -133,9 +133,9 @@
 
     .add-word-select button {
         background-color: transparent;
-        color: #ff8ac8;
+        color: black;
         padding: 5px 10px;
-        border: 1px solid #ff8ac8;
+        border: 1px solid black;
         border-radius: 20px;
         cursor: pointer;
         font-size: 14px;
@@ -175,7 +175,7 @@
 <body>
     <div class="container">
         <div class="input-box">
-            <textarea rows="2" placeholder="คำตอบของแชทบอท">ทดสอบ</textarea>
+            <textarea rows="2" placeholder="คำตอบของแชทบอท"></textarea>
         </div>
         <div class="d-flex align-items-center mb-3">
             <div class="custom-control custom-switch">
@@ -220,7 +220,7 @@
             <h6>คำตอบของแชทบอท</h6>
             <div class="input-box">
                 <i style="margin-right: 10px" class="fa-regular fa-trash-can"></i>
-                <textarea rows="2" placeholder="คำตอบของแชทบอท">คำตอบ</textarea>
+                <textarea rows="2" placeholder="คำตอบของแชทบอท"></textarea>
             </div>
         </div>
         <div class="warning">
@@ -272,99 +272,100 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-   document.addEventListener('DOMContentLoaded', function () {
-    const addBtn = document.getElementById('add-btn');
-    const btnContainer = document.querySelector('.btn-container');
+    document.addEventListener('DOMContentLoaded', function() {
+        const addBtn = document.getElementById('add-btn');
+        const btnContainer = document.querySelector('.btn-container');
 
-    const keywordBtn = document.getElementById('keyword-btn');
-    const keywordContainer = document.querySelector('.keyword-container');
+        const keywordBtn = document.getElementById('keyword-btn');
+        const keywordContainer = document.querySelector('.keyword-container');
 
-    const sameBtn = document.getElementById('same-btn');
-    const sameContainer = document.querySelector('.same-container');
+        const sameBtn = document.getElementById('same-btn');
+        const sameContainer = document.querySelector('.same-container');
 
-    const wordSelectBtn = document.getElementById('word-select-btn');
-    const wordSelectContainer = document.querySelector('.word-select-container');
+        const wordSelectBtn = document.getElementById('word-select-btn');
+        const wordSelectContainer = document.querySelector('.word-select-container');
 
-    // ฟังก์ชันสำหรับสร้างปุ่มใน btnContainer
-    function createButtonForBtnContainer() {
-        createDynamicButton(btnContainer);
-    }
+        // ฟังก์ชันสำหรับสร้างปุ่มใน btnContainer
+        function createButtonForBtnContainer() {
+            createDynamicButton(btnContainer);
+        }
 
-    // ฟังก์ชันสำหรับสร้างปุ่มใน keywordContainer
-    function createButtonForKeywordContainer() {
-        createDynamicButton(keywordContainer);
-    }
+        // ฟังก์ชันสำหรับสร้างปุ่มใน keywordContainer
+        function createButtonForKeywordContainer() {
+            createDynamicButton(keywordContainer);
+        }
 
-    // ฟังก์ชันสำหรับสร้างปุ่มใน sameContainer
-    function createButtonForSameContainer() {
-        createDynamicButton(sameContainer);
-    }
+        // ฟังก์ชันสำหรับสร้างปุ่มใน sameContainer
+        function createButtonForSameContainer() {
+            createDynamicButton(sameContainer);
+        }
 
-    // ฟังก์ชันสำหรับสร้างปุ่มใน wordSelectContainer
-    function createButtonForWordSelectContainer() {
-        createDynamicButton(wordSelectContainer);
-    }
+        // ฟังก์ชันสำหรับสร้างปุ่มใน wordSelectContainer
+        function createButtonForWordSelectContainer() {
+            createDynamicButton(wordSelectContainer);
+        }
 
-    function createDynamicButton(container) {
-        const wrapperDiv = document.createElement('div');
-        wrapperDiv.classList.add('btn', 'd-flex', 'align-items-center', 'justify-content-between');
+        function createDynamicButton(container) {
+            const wrapperDiv = document.createElement('div');
+            wrapperDiv.classList.add('btn', 'd-flex', 'align-items-center', 'justify-content-between');
 
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.classList.add('form-control');
-        input.style.width = 'auto';
-        input.style.flexGrow = '1';
-        input.placeholder = 'ใส่ข้อความ';
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.classList.add('form-control');
+            input.style.width = 'auto';
+            input.style.flexGrow = '1';
+            input.placeholder = 'ใส่ข้อความ';
 
-        const saveButton = document.createElement('button');
-        saveButton.textContent = 'บันทึก';
-        saveButton.classList.add('btn', 'btn-sm', 'btn-primary', 'ml-2', 'pl-2');
+            const saveButton = document.createElement('button');
+            saveButton.textContent = 'บันทึก';
+            saveButton.classList.add('btn', 'btn-sm', 'btn-primary', 'ml-2', 'pl-2');
 
-        const closeButton = document.createElement('button');
-        closeButton.textContent = 'X';
-        closeButton.classList.add('btn', 'btn-sm', 'btn-outline-danger', 'ml-2', 'pl-2', 'pr-2');
+            const closeButton = document.createElement('button');
+            closeButton.textContent = 'X';
+            closeButton.classList.add('btn', 'btn-sm', 'btn-outline-danger', 'ml-2', 'pl-2', 'pr-2');
 
-        closeButton.addEventListener('click', function () {
-            container.removeChild(wrapperDiv);
-        });
+            closeButton.addEventListener('click', function() {
+                container.removeChild(wrapperDiv);
+            });
 
-        wrapperDiv.appendChild(input);
-        wrapperDiv.appendChild(saveButton);
-        wrapperDiv.appendChild(closeButton);
+            wrapperDiv.appendChild(input);
+            wrapperDiv.appendChild(saveButton);
+            wrapperDiv.appendChild(closeButton);
 
-        container.appendChild(wrapperDiv);
+            container.appendChild(wrapperDiv);
 
-        saveButton.addEventListener('click', function () {
-            const buttonText = input.value.trim();
-            if (buttonText) {
-                wrapperDiv.innerHTML = '';
-                wrapperDiv.classList.remove('d-flex', 'align-items-center', 'justify-content-between');
+            saveButton.addEventListener('click', function() {
+                const buttonText = input.value.trim();
+                if (buttonText) {
+                    wrapperDiv.innerHTML = '';
+                    wrapperDiv.classList.remove('d-flex', 'align-items-center',
+                        'justify-content-between');
 
-                const newButton = document.createElement('button');
-                newButton.textContent = buttonText;
-                newButton.classList.add('btn-custom', 'd-flex', 'align-items-center');
+                    const newButton = document.createElement('button');
+                    newButton.textContent = buttonText;
+                    newButton.classList.add('btn-custom', 'd-flex', 'align-items-center');
 
-                const deleteIconButton = document.createElement('i');
-                deleteIconButton.classList.add('fa', 'fa-times', 'ml-2');
-                deleteIconButton.style.cursor = 'pointer';
+                    const deleteIconButton = document.createElement('i');
+                    deleteIconButton.classList.add('fa', 'fa-times', 'ml-2');
+                    deleteIconButton.style.cursor = 'pointer';
 
-                deleteIconButton.addEventListener('click', function () {
-                    container.removeChild(wrapperDiv);
-                });
+                    deleteIconButton.addEventListener('click', function() {
+                        container.removeChild(wrapperDiv);
+                    });
 
-                newButton.appendChild(deleteIconButton);
+                    newButton.appendChild(deleteIconButton);
 
-                wrapperDiv.appendChild(newButton);
-            }
-        });
+                    wrapperDiv.appendChild(newButton);
+                }
+            });
 
-        const style = document.createElement('style');
-        style.textContent = `
+            const style = document.createElement('style');
+            style.textContent = `
         .btn-custom {
-            background-color: #ff8ac8;
+            background-color: black;
             color: white;
             padding: 5px 10px;
-            border: 1px solid #ff8ac8;
+            border: 1px solid black;
             border-radius: 20px;
             cursor: pointer;
             font-size: 14px;
@@ -381,16 +382,15 @@
             padding-right: 5px;
         }
     `;
-        document.head.appendChild(style);
-    }
+            document.head.appendChild(style);
+        }
 
-    // เพิ่ม event listener ให้กับแต่ละปุ่ม
-    addBtn.addEventListener('click', createButtonForBtnContainer);
-    keywordBtn.addEventListener('click', createButtonForKeywordContainer);
-    sameBtn.addEventListener('click', createButtonForSameContainer);
-    wordSelectBtn.addEventListener('click', createButtonForWordSelectContainer);
-});
-
+        // เพิ่ม event listener ให้กับแต่ละปุ่ม
+        addBtn.addEventListener('click', createButtonForBtnContainer);
+        keywordBtn.addEventListener('click', createButtonForKeywordContainer);
+        sameBtn.addEventListener('click', createButtonForSameContainer);
+        wordSelectBtn.addEventListener('click', createButtonForWordSelectContainer);
+    });
     </script>
 </body>
 
