@@ -1,29 +1,15 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+// ข้อมูลเชื่อมต่อฐานข้อมูล
+$host = "localhost"; // ชื่อโฮสต์ฐานข้อมูล
+$username = "root";  // ชื่อผู้ใช้งานฐานข้อมูล
+$password = "";    // รหัสผ่านฐานข้อมูล
+$database = "linebot"; // ชื่อฐานข้อมูล
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "linebot";
+// สร้างการเชื่อมต่อ
+$conn = new mysqli($host, $username, $password, $database);
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
+// ตรวจสอบการเชื่อมต่อ
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-}
-
-$conn->set_charset("utf8");
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-function executeQuery($query) {
-    global $conn;
-    $result = $conn->query($query);
-    if (!$result) {
-        echo "Error: " . $conn->error;
-    }
-    return $result;
 }
 ?>
